@@ -1,0 +1,39 @@
+//  https://material.io/design/color/#
+@import "~@angular/material/theming";
+// Plus importa para otros componentes en su aplicación.
+
+$mat-myapp-accent: (
+  50: #e5faf8,
+  100: #bdf2ee,
+  200: #92eae3,
+  300: #66e1d8,
+  400: #45dacf,
+  500: #24d4c7,
+  600: #20cfc1,
+  700: #1bc9ba,
+  800: #16c3b3,
+  900: #0db9a6,
+  A100: #e6fffc,
+  A200: #b3fff6,
+  A400: #80ffef,
+  A700: #67ffec,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+// Definir el tema por defecto (igual que el ejemplo anterior).
+$aqua-marine-palette: $mat-myapp-accent;
