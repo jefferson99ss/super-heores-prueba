@@ -4,7 +4,7 @@
 			<img src="./assets/heroes-logo.png" alt="">
 		</div>
 	</header>
-	<div class="container-outlet">
-		<router-outlet></router-outlet>
+	<div class="container-outlet" [@routeAnimations]="prepareRoute(outlet)">
+		<router-outlet #outlet="outlet"></router-outlet>
 	</div>
 </div>

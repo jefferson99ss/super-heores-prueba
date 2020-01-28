@@ -1,19 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
+import { FADE_ANIMATION } from '../animations/animation';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss']
+  styleUrls: ['./layout.component.scss'],
+  animations: [
+    FADE_ANIMATION
+  ]
 })
 export class LayoutComponent implements OnInit {
 
-  constructor( private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit() {
-    console.log(this.route);
-    
-    this.route.data.subscribe(data => console.log(data));
+
+  }
+
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 
 }

@@ -13,7 +13,7 @@ const routes: Routes = [
 		children: [
 			{ path: "", component: HomeComponent, data: { animation: 'home' } },
 			{ path: "super-heroes", component: SuperHeroesComponent, data: { animation: 'super-heroes' } },
-			{ path: "super-heroe/:id", component: DescriptionSuperHereoeComponent, data: { animation: 'super-heroe'} },
+			{ path: "super-heroe/:id", component: DescriptionSuperHereoeComponent, data: { animation: 'super-heroe' } },
 		]
 	}
 
