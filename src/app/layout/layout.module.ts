@@ -6,8 +6,10 @@ import { SuperHeroesComponent } from '../super-heroes/super-heroes/super-heroes.
 import { DescriptionSuperHereoeComponent } from '../super-heroes/description-super-hereoe/description-super-hereoe.component';
 import { HomeComponent } from '../home/home.component';
 
+import {NgxPaginationModule} from 'ngx-pagination'
+
 /* Material modules */
-import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule, MatCardModule, MatIconModule, MatProgressSpinnerModule } from '@angular/material';
 
 
 
@@ -16,7 +18,11 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     LayoutRoutingModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    NgxPaginationModule,
+    MatProgressSpinnerModule
   ]
 })
 export class LayoutModule { }

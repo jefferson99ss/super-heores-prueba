@@ -2,19 +2,31 @@
   display: block;
   width: 100%;
   height: 100%;
-  header {
-    background-color: #000;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .logo {
-      height: 54px;
-      width: 185px;
-      img {
-        width: 100%;
-        height: 100%;
+  .wrapper{
+    height: inherit;
+    header {
+      background-color: #000;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      z-index: 2;
+      width: 100%;
+      top: 0;
+      .logo {
+        height: 54px;
+        width: 185px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
+    .container-outlet{
+      padding-top: 80px;
+      height: 100%;
+    }
   }
+
 }

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { ServiceSuperHeroesService } from 'src/app/services/service-super-heroes.service';
 
 @Component({
@@ -11,9 +9,12 @@ import { ServiceSuperHeroesService } from 'src/app/services/service-super-heroes
 export class SuperHeroesComponent implements OnInit {
 
   constructor(public _superHeroeService: ServiceSuperHeroesService) { }
-  heroes: Array<object>
+  heroes: Array<object> = []
+  
   ngOnInit() {
-    this.listSuperHeroes()
+    setTimeout(() => {
+      this.listSuperHeroes()
+    }, 100);
   }
 
   listSuperHeroes(): void {

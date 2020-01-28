@@ -1,0 +1,28 @@
+:host{
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    mat-card{
+        margin: 10px 0;
+        height: calc(100% - 15px);
+        mat-card-actions{
+            display: flex;
+            justify-content: space-between;
+            .actions{
+                button:nth-child(1){
+                    color:rgb(30, 117, 189);
+                }
+                button:nth-child(2){
+                    color:rgb(194, 25, 47);
+                }
+            }
+        }
+    }
+    pagination-controls::ng-deep{
+        margin: 20px auto;
+        .ngx-pagination{
+            padding: 0;
+        }
+    }
+}

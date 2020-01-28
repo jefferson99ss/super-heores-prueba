@@ -1,1 +1,36 @@
-<p>super-heroes works!</p>
+<div class="container">
+<div  *ngIf="heroes.length" class="row">
+    <div class="col-sm-6 col-md-3 col-lg-4" *ngFor="let i = index, let heroe of heroes | paginate: { itemsPerPage: 9, currentPage: p  }" >
+        <mat-card class="animated fadeIn fast">
+            <mat-card-header>   
+            <mat-card-title>{{heroe.name}}</mat-card-title>
+            <mat-card-subtitle>{{heroe.publisher}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="heroe.picture">
+            <mat-card-content>
+              <p>
+            {{heroe.info}}
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <div class="actions">
+                    <button mat-button>
+                        12
+                        <mat-icon>thumb_up_alt</mat-icon>
+                      </button>
+                      <button mat-button>
+                          3
+                          <mat-icon>thumb_down_alt</mat-icon>
+                      </button>
+                </div>
+              <button [routerLink]="['/super-heroe', i]" mat-button color="primary">Ver mas..</button>
+
+            </mat-card-actions>
+          </mat-card>
+    </div>  
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+<div *ngIf="!heroes.length" class="wrapper-spinner">
+    <mat-spinner ></mat-spinner>
+</div>
+</div>
