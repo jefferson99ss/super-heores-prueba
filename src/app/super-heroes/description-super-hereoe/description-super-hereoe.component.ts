@@ -10,8 +10,18 @@ import { Location } from '@angular/common';
 })
 export class DescriptionSuperHereoeComponent implements OnInit {
 
-  constructor(private _location: Location, private activateRoute: ActivatedRoute, private _seriviceSuperHeroes: ServiceSuperHeroesService) { }
+  constructor(
+    private _location: Location, 
+    private activateRoute: ActivatedRoute, 
+    private _superHeroeService: ServiceSuperHeroesService
+    ) {
+      this.heroesLocalStorage = (JSON.parse(localStorage.getItem('heroes')))
+
+     }
+
   heroe: object
+  heroesLocalStorage: object = {}
+
   ngOnInit() {
     this.getHeroe()
   }
@@ -21,6 +31,11 @@ export class DescriptionSuperHereoeComponent implements OnInit {
       this.heroe = JSON.parse(params.datos)
     })
   }
+
+  likeAndDontLike(heroe, action): void {
+    this.heroesLocalStorage = this._superHeroeService.actionLike(heroe, action);
+  }
+
 
   backToPage() {
     this._location.back()

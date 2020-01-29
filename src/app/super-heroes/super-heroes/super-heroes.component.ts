@@ -13,7 +13,7 @@ export class SuperHeroesComponent implements OnInit {
 
   heroes: Array<object> = []
   heroesLocalStorage: object = {}
-
+  term:string
   constructor(public _superHeroeService: ServiceSuperHeroesService, private _router: Router) {
     this.heroesLocalStorage = (JSON.parse(localStorage.getItem('heroes'))) ? (JSON.parse(localStorage.getItem('heroes'))) : {};
 
@@ -39,6 +39,6 @@ export class SuperHeroesComponent implements OnInit {
 
   seeMore(heroe, i) {
     heroe = JSON.stringify(heroe);
-    this._router.navigateByUrl(`super-heroe/${i}` + '?datos=' + heroe);
+    this._router.navigateByUrl(`super-heroe/${i}?datos=${heroe}`);
   }
 }

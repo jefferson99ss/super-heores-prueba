@@ -5,11 +5,12 @@ import { LayoutRoutingModule } from './layout-routing.module';
 import { SuperHeroesComponent } from '../super-heroes/super-heroes/super-heroes.component';
 import { DescriptionSuperHereoeComponent } from '../super-heroes/description-super-hereoe/description-super-hereoe.component';
 import { HomeComponent } from '../home/home.component';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {NgxPaginationModule} from 'ngx-pagination'
+import { FormsModule } from '@angular/forms';
 
 /* Material modules */
-import { MatButtonModule, MatCardModule, MatIconModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatIconModule, MatProgressSpinnerModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 
 
 
@@ -22,7 +23,11 @@ import { MatButtonModule, MatCardModule, MatIconModule, MatProgressSpinnerModule
     MatCardModule,
     MatIconModule,
     NgxPaginationModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    Ng2SearchPipeModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class LayoutModule { }

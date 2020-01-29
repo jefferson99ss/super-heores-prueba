@@ -2,7 +2,12 @@
   display: block;
   width: 100%;
   height: 100%;
-
+  .wrapper-input{
+    margin-top: 20px;
+    mat-form-field{
+      width: 100%;
+    }
+  }
   mat-card {
     margin: 10px 0;
     height: calc(100% - 15px);
@@ -28,6 +33,7 @@
     margin: 20px auto;
     .ngx-pagination {
       padding: 0;
+      text-align: center;
     }
   }
 }

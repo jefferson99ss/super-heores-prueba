@@ -17,12 +17,12 @@
                     <mat-icon>arrow_back_ios</mat-icon>
                     volver
                 </button>
-                    <button mat-button>
-                        12
+                    <button mat-button (click)="likeAndDontLike(heroe, 'like')">
+                        {{ heroesLocalStorage[heroe.id] ? heroesLocalStorage[heroe.id].like : '' }}
                         <mat-icon>thumb_up_alt</mat-icon>
                       </button>
-                      <button mat-button>
-                          3
+                      <button mat-button (click)="likeAndDontLike(heroe, 'dontLike')">
+                        {{ heroesLocalStorage[heroe.id] ? heroesLocalStorage[heroe.id].dontLike : '' }}
                           <mat-icon>thumb_down_alt</mat-icon>
                       </button>
                 </div>
