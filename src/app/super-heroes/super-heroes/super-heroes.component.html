@@ -1,17 +1,17 @@
 <div class="container">
   <div class="row">
-      <div class="col-12">
-        <div class="wrapper-input">
-            <mat-form-field appearance="outline">
-                <mat-label>¿Que super heroe buscas?</mat-label>
-                <input  type="text" [(ngModel)]="term" matInput placeholder="ej: Black Flash">
-                <mat-icon matSuffix>search</mat-icon>
-              </mat-form-field>
-        </div>
+    <div class="col-12">
+      <div class="wrapper-input">
+        <mat-form-field appearance="outline">
+          <mat-label>¿Que super heroe buscas?</mat-label>
+          <input type="text" [(ngModel)]="term" matInput placeholder="ej: Black Flash">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
       </div>
+    </div>
   </div>
   <div *ngIf="heroes.length" class="row">
-    <div class="col-sm-6 col-md-4"
+    <div class="col-sm-12 col-md-4"
       *ngFor="let i = index, let heroe of heroes |filter:term | paginate: { itemsPerPage: 9, currentPage: p  }">
       <mat-card class="animated fadeIn fast">
         <mat-card-header>
@@ -25,17 +25,12 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <div class="actions">
-            <button mat-button (click)="likeAndDontLike(heroe, 'like')">
-              {{ heroesLocalStorage[heroe.id] ? heroesLocalStorage[heroe.id].like : '' }}
-              <mat-icon>thumb_up_alt</mat-icon>
-            </button>
-            <button mat-button (click)="likeAndDontLike(heroe, 'dontLike')">
-              {{ heroesLocalStorage[heroe.id] ? heroesLocalStorage[heroe.id].dontLike : '' }}
-              <mat-icon>thumb_down_alt</mat-icon>
-            </button>
-          </div>
-          <button (click)="seeMore(heroe, i)" mat-button color="primary">Ver mas..</button>
+
+          <button mat-button (click)="like(heroe)">
+            <mat-icon>thumb_up_alt</mat-icon>
+            Me gusta
+          </button>
+          <span>{{ heroesLocalStorage[heroe.id] ? heroesLocalStorage[heroe.id].like : '' }}</span>
 
         </mat-card-actions>
       </mat-card>
@@ -43,7 +38,7 @@
   </div>
   <div class="row">
     <div class="col-12">
-        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
   </div>
   <div *ngIf="!heroes.length" class="wrapper-spinner">

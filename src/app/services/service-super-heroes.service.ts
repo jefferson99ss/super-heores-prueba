@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceSuperHeroesService {
+export class SuperHeroesService {
 
   heroesLocalStorage: object = {}
 
@@ -13,32 +13,35 @@ export class ServiceSuperHeroesService {
     this.heroesLocalStorage = (JSON.parse(localStorage.getItem('heroes')))
   }
 
+  /** 
+   * Metodo que hace la peticion para obtener los super heroes por medio del metodo GET,
+   * retorna un observable con el array de datos
+   */
   getHeroes(): Observable<any> {
     return this.http.get('http://35.162.46.100/superheroes/')
   }
 
-
-  actionLike(heroe, action) {
+  /**
+   * metodo que se encarga de verificar si el heroe al cual se le dio like ya existe en el localeStorage,
+   *  si es verdadero agrega un like, si no lo crea y retorna el objeto de heroes en el localeStorage.
+   */
+  actionLike(heroe) {
     if (this.heroesLocalStorage) {
-
       if (this.heroesLocalStorage[heroe.id]) {
-        (this.heroesLocalStorage[heroe.id][action])
-          ? this.heroesLocalStorage[heroe.id][action]++
-          : this.heroesLocalStorage[heroe.id][action] = 1;
+        this.heroesLocalStorage[heroe.id]['like']++
       } else {
         const heroeLocal = {
           nombre: heroe.name
         };
-        heroeLocal[action] = 1;
+        heroeLocal['like'] = 1;
         this.heroesLocalStorage[heroe.id] = heroeLocal;
       }
       localStorage.setItem('heroes', JSON.stringify(this.heroesLocalStorage));
     } else {
-
       const heroeLocal = {
         nombre: heroe.name
       };
-      heroeLocal[action] = 1;
+      heroeLocal['like'] = 1;
       this.heroesLocalStorage = {};
       this.heroesLocalStorage[heroe.id] = heroeLocal;
       localStorage.setItem('heroes', JSON.stringify(this.heroesLocalStorage));

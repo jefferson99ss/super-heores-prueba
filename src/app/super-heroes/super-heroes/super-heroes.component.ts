@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiceSuperHeroesService } from 'src/app/services/service-super-heroes.service';
+import { SuperHeroesService } from 'src/app/services/service-super-heroes.service';
 import * as _ from 'underscore';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,8 +12,7 @@ export class SuperHeroesComponent implements OnInit {
 
   heroes: Array<object> = []
   heroesLocalStorage: object = {}
-  term:string
-  constructor(public _superHeroeService: ServiceSuperHeroesService, private _router: Router) {
+  constructor(public _superHeroeService: SuperHeroesService) {
     this.heroesLocalStorage = (JSON.parse(localStorage.getItem('heroes'))) ? (JSON.parse(localStorage.getItem('heroes'))) : {};
 
   }
@@ -23,6 +21,7 @@ export class SuperHeroesComponent implements OnInit {
     this.listSuperHeroes()
   }
 
+  /* Metodo para obtener los resultado que retonar el servicio  */
   listSuperHeroes(): void {
     this._superHeroeService.getHeroes().subscribe(result => {
       _.map(result, element => {
@@ -33,12 +32,8 @@ export class SuperHeroesComponent implements OnInit {
     })
   }
 
-  likeAndDontLike(heroe, action): void {
-    this.heroesLocalStorage = this._superHeroeService.actionLike(heroe, action);
+  like(heroe): void {
+    this.heroesLocalStorage = this._superHeroeService.actionLike(heroe);
   }
 
-  seeMore(heroe, i) {
-    heroe = JSON.stringify(heroe);
-    this._router.navigateByUrl(`super-heroe/${i}?datos=${heroe}`);
-  }
 }
