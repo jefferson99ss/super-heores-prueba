@@ -8,7 +8,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination'
 import { FormsModule } from '@angular/forms';
 import { RankingSuperHeroesComponent } from '../super-heroes/ranking-super-heroes/ranking-super-heroes.component';
-
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 /* Material modules */
 import { MatButtonModule, MatCardModule, MatIconModule, MatProgressSpinnerModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 
@@ -27,7 +27,8 @@ import { MatButtonModule, MatCardModule, MatIconModule, MatProgressSpinnerModule
     Ng2SearchPipeModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    SlickCarouselModule
   ]
 })
 export class LayoutModule { }

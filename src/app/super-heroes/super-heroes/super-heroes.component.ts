@@ -21,7 +21,7 @@ export class SuperHeroesComponent implements OnInit {
     this.listSuperHeroes()
   }
 
-  /* Metodo para obtener los resultado que retonar el servicio  */
+  /* Metodo para obtener los resultado que retona el servicio  */
   listSuperHeroes(): void {
     this._superHeroeService.getHeroes().subscribe(result => {
       _.map(result, element => {
@@ -32,8 +32,10 @@ export class SuperHeroesComponent implements OnInit {
     })
   }
 
+/* Metodo que se ejecuta con el botton me gusta, este hace un llamdo al metodo
+*  que se encuentra en el servicio y le envia el objeto del heroe
+* */
   like(heroe): void {
     this.heroesLocalStorage = this._superHeroeService.actionLike(heroe);
   }
-
 }

@@ -1,8 +1,22 @@
 <div class="wrapper">
 	<header>
-		<div class="logo">
-			<img src="./assets/heroes-logo.png" alt="">
+		<button class="menu" [ngClass]="{'button-menu-open': animationMenu}" (click)="openMenu()">
+			<span></span>
+      <span></span>
+      <span></span>
+		</button>
+
+	 	<div [class]="currentClass + ' expandable-menu'">
+			<ul>
+			  <li > <a routerLink="/super-heroes" (click)="openMenu()">Super heroes</a></li>
+			  <li ><a routerLink="/ranking" (click)="openMenu()">Rankig</a></li>
+			</ul>
+			<span>BARTOLOCODE</span>
+	  </div> 
+		<div routerLink="/super-heroes" class="logo">
+			<img src="./assets/heroes-logo.png" alt="logo">
 		</div>
+		<a mat-button routerLink="/ranking"> Ver ranking... </a>
 	</header>
 	<div class="container-outlet" [@routeAnimations]="prepareRoute(outlet)">
 		<router-outlet #outlet="outlet"></router-outlet>

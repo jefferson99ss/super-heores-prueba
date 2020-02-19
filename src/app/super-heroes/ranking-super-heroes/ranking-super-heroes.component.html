@@ -1,1 +1,19 @@
-<p>ranking-super-heroes works!</p>
+<div class="wrapper">
+    <span class="title">Estos son los heroes mas votados</span>
+  <div class="container-carrousel">
+    
+    <ngx-slick-carousel
+      class="carousel"
+      #slickModal="slick-carousel"
+      [config]="slideConfig"
+    >
+      <div ngxSlickItem *ngFor="let slide of arrayRankingHeroes" class="slide">
+        <img src="{{ slide.img }}" alt="" width="100%" height="100%" />
+        <div class="effect">
+        <span class="likes">{{slide.like}} likes</span>
+        <span class="name">{{slide.nombre}}</span>
+        </div>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+</div>

@@ -25,13 +25,14 @@ export class SuperHeroesService {
    * metodo que se encarga de verificar si el heroe al cual se le dio like ya existe en el localeStorage,
    *  si es verdadero agrega un like, si no lo crea y retorna el objeto de heroes en el localeStorage.
    */
-  actionLike(heroe) {
+  actionLike(heroe) {    
     if (this.heroesLocalStorage) {
       if (this.heroesLocalStorage[heroe.id]) {
         this.heroesLocalStorage[heroe.id]['like']++
       } else {
         const heroeLocal = {
-          nombre: heroe.name
+          nombre: heroe.name,
+          img: heroe.picture
         };
         heroeLocal['like'] = 1;
         this.heroesLocalStorage[heroe.id] = heroeLocal;
@@ -39,7 +40,8 @@ export class SuperHeroesService {
       localStorage.setItem('heroes', JSON.stringify(this.heroesLocalStorage));
     } else {
       const heroeLocal = {
-        nombre: heroe.name
+        nombre: heroe.name,
+        img: heroe.picture
       };
       heroeLocal['like'] = 1;
       this.heroesLocalStorage = {};
